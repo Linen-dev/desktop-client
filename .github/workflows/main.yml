@@ -54,7 +54,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          releaseName: 'App Name v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
+          tagName: 'v__VERSION__'
+          releaseName: 'App Name v__VERSION__' 
           releaseBody: 'See the assets to download and install this version.'
           releaseDraft: true
           prerelease: false
