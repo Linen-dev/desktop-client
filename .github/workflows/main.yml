@@ -57,8 +57,8 @@ jobs:
           REACT_APP_PUBLIC_POSTHOG_HOST: ${{ vars.REACT_APP_PUBLIC_POSTHOG_HOST }}
         with:
           tagName: 'v__VERSION__'
-          releaseName: 'App Name v__VERSION__' 
-          releaseBody: 'See the assets to download and install this version.'
+          releaseName: 'Linen v__VERSION__' 
+          releaseBody: 'New Linen release v__VERSION__.'
           releaseDraft: true
           prerelease: false
           projectPath: './packages/spa'
