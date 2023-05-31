@@ -50,9 +50,14 @@ jobs:
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+          TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+          REACT_APP_PUSH_SERVICE_URL: ${{ vars.REACT_APP_PUSH_SERVICE_URL }}
+          REACT_APP_LINEN_BASE_URL: ${{ vars.REACT_APP_LINEN_BASE_URL }}
+          REACT_APP_PUBLIC_POSTHOG_KEY: ${{ vars.REACT_APP_PUBLIC_POSTHOG_KEY }}
+          REACT_APP_PUBLIC_POSTHOG_HOST: ${{ vars.REACT_APP_PUBLIC_POSTHOG_HOST }}
         with:
           tagName: 'v__VERSION__'
           releaseName: 'App Name v__VERSION__' 
