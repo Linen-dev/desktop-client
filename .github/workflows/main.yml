@@ -8,8 +8,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        platform: [macos-latest, ubuntu-20.04, windows-latest]
-        #platform: [windows-latest]
+        #platform: [macos-latest, ubuntu-20.04, windows-latest]
+        platform: [macos-latest]
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: 'Linen-dev/linen.dev'
-          ref: 'windows-build'
+          ref: 'main'
 
       - name: Install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
@@ -58,8 +58,8 @@ jobs:
           REACT_APP_PUBLIC_POSTHOG_HOST: ${{ vars.REACT_APP_PUBLIC_POSTHOG_HOST }}
         with:
           tagName: 'v__VERSION__'
-          releaseName: 'Linen v__VERSION__' 
-          releaseBody: 'New Linen release v__VERSION__.'
+          releaseName: 'v__VERSION__' 
+          releaseBody: 'v__VERSION__.'
           releaseDraft: false
           prerelease: false
           projectPath: './packages/spa'
