@@ -52,6 +52,7 @@ jobs:
       - name: Install frontend dependencies
         # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
         run: |
+          yarn config set network-timeout 300000 -g
           yarn install
           yarn build:deps
 
