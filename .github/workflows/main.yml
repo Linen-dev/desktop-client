@@ -1,6 +1,9 @@
 name: Release
 on: workflow_dispatch # manual trigger
 
+env: 
+  RELEASE_MESSAGE: "See the assets to download this version and install." 
+  
 jobs:
   release:
     permissions:
@@ -8,8 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        #platform: [macos-latest, ubuntu-20.04, windows-latest]
-        platform: [macos-latest, windows-latest]
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -59,7 +61,7 @@ jobs:
         with:
           tagName: 'v__VERSION__'
           releaseName: 'v__VERSION__' 
-          releaseBody: 'v__VERSION__.'
+          releaseBody: ${{ env.RELEASE_MESSAGE }}
           releaseDraft: false
           prerelease: false
           projectPath: './packages/spa'
