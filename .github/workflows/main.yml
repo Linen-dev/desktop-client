@@ -1,8 +1,15 @@
 name: Release
-on: workflow_dispatch # manual trigger
-
+on:
+  workflow_dispatch: # manual trigger
+    inputs:
+      release_message:
+        description: 'Message to show in the update dialog'
+        type: string
+        required: true
+        default: 'See the assets to download this version and install'
+        
 env: 
-  RELEASE_MESSAGE: "See the assets to download this version and install." 
+  RELEASE_MESSAGE: ${{ inputs.release_message }} 
   
 jobs:
   release:
